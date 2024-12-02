@@ -19,7 +19,8 @@ final class HeadlessMode
 {
     public const NONE = 0;
     public const FULL = 1;
-    public const MIXED = 2;
+    public const MIXED_FLUID_FIRST = 2;
+    public const MIXED_JSON_FIRST = 3;
 
     private ?ServerRequestInterface $request = null;
 
@@ -41,14 +42,15 @@ final class HeadlessMode
         }
 
         return $headless->getMode() === self::FULL ||
-            ($headless->getMode() === self::MIXED && ($this->request->getHeader('Accept')[0] ?? '') === 'application/json');
+            ($headless->getMode() === self::MIXED_FLUID_FIRST && ($this->request->getHeader('Accept')[0] ?? '') === 'application/json') ||
+            ($headless->getMode() === self::MIXED_JSON_FIRST && !(str_contains(($this->request->getHeader('Accept')[0] ?? ''), 'text/html')));
     }
 
     public function overrideBackendRequestBySite(SiteInterface $site, ?SiteLanguage $language = null): ServerRequestInterface
     {
         $mode = (int)($site->getConfiguration()['headless'] ?? self::NONE);
 
-        if ($mode === self::MIXED) {
+        if ($mode === self::MIXED_FLUID_FIRST) {
             // in BE context we override
             $mode = self::NONE;
         }

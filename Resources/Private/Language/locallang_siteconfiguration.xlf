@@ -70,8 +70,11 @@
             <trans-unit approved="yes" id="site.headless.full">
                 <source>Full headless mode</source>
             </trans-unit>
-            <trans-unit approved="yes" id="site.headless.mixed">
-                <source>Mixed headless/fluid mode</source>
+            <trans-unit approved="yes" id="site.headless.mixed_fluid_first">
+                <source>Mixed headless/fluid mode (Fluid first)</source>
+            </trans-unit>
+            <trans-unit approved="yes" id="site.headless.mixed_json_first">
+                <source>Mixed headless/fluid mode (JSON first)</source>
             </trans-unit>
         </body>
     </file>
