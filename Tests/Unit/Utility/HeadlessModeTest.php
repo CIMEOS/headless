@@ -24,7 +24,7 @@ class HeadlessModeTest extends TestCase
         $mode = new HeadlessMode();
 
         $request = new ServerRequest();
-        $request = $request->withAttribute('headless', new Headless(HeadlessMode::MIXED_FLUID_FIRST));
+        $request = $request->withAttribute('headless', new Headless(HeadlessMode::MIXED));
 
         $mode = $mode->withRequest($request);
 
@@ -37,7 +37,7 @@ class HeadlessModeTest extends TestCase
 
         $request = new ServerRequest();
         $request = $request->withHeader('Accept', 'application/json');
-        $request = $request->withAttribute('headless', new Headless(HeadlessMode::MIXED_FLUID_FIRST));
+        $request = $request->withAttribute('headless', new Headless(HeadlessMode::MIXED));
 
         $mode = $mode->withRequest($request);
 
@@ -97,12 +97,12 @@ class HeadlessModeTest extends TestCase
 
         self::assertSame(HeadlessMode::FULL, $request->getAttribute('headless')->getMode());
 
-        $request = $mode->overrideBackendRequestBySite(new Site('test', 1, ['headless' => HeadlessMode::MIXED_FLUID_FIRST]));
+        $request = $mode->overrideBackendRequestBySite(new Site('test', 1, ['headless' => HeadlessMode::MIXED]));
 
         self::assertSame(HeadlessMode::NONE, $request->getAttribute('headless')->getMode());
 
         $request = $mode->overrideBackendRequestBySite(
-            new Site('test', 1, ['headless' => HeadlessMode::MIXED_FLUID_FIRST]),
+            new Site('test', 1, ['headless' => HeadlessMode::MIXED]),
             new SiteLanguage(
                 1,
                 'en_US',

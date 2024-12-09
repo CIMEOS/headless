@@ -49,7 +49,7 @@ class AfterPagePreviewUriGeneratedListenerTest extends TestCase
         $resolver = $this->prophesize(Resolver::class);
         $resolver->evaluate(Argument::any())->willReturn(true);
         $siteFinder = $this->createPartialMock(SiteFinder::class, ['getSiteByPageId']);
-        $siteFinder->method('getSiteByPageId')->willReturn($site = new Site('test', 1, ['headless' => HeadlessMode::MIXED_FLUID_FIRST, 'frontendBase' => 'https://front.test.tld', 'base' => 'https://test.tld']));
+        $siteFinder->method('getSiteByPageId')->willReturn($site = new Site('test', 1, ['headless' => HeadlessMode::MIXED, 'frontendBase' => 'https://front.test.tld', 'base' => 'https://test.tld']));
 
         $listener = new AfterPagePreviewUriGeneratedListener(new UrlUtility(
             null,

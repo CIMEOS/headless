@@ -33,7 +33,7 @@ $tempColumns = [
             'items' => [
                 ['LLL:EXT:headless/Resources/Private/Language/locallang_siteconfiguration.xlf:site.headless.none', HeadlessMode::NONE],
                 ['LLL:EXT:headless/Resources/Private/Language/locallang_siteconfiguration.xlf:site.headless.full', HeadlessMode::FULL],
-                ['LLL:EXT:headless/Resources/Private/Language/locallang_siteconfiguration.xlf:site.headless.mixed_fluid_first', HeadlessMode::MIXED_FLUID_FIRST],
+                ['LLL:EXT:headless/Resources/Private/Language/locallang_siteconfiguration.xlf:site.headless.mixed_fluid_first', HeadlessMode::MIXED],
                 ['LLL:EXT:headless/Resources/Private/Language/locallang_siteconfiguration.xlf:site.headless.mixed_json_first', HeadlessMode::MIXED_JSON_FIRST],
             ],
         ],
